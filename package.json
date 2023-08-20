@@ -1,0 +1,24 @@
+{
+  "name": "soda-es",
+  "version": "0.0.1",
+  "description": "a component build framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SodaWang/soda-es.git"
+  },
+  "keywords": [
+    "esbuild",
+    "typescript",
+    "storybook"
+  ],
+  "author": "soda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SodaWang/soda-es/issues"
+  },
+  "homepage": "https://github.com/SodaWang/soda-es#readme"
+}
