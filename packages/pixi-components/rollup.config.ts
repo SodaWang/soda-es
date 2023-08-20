@@ -1,25 +1,33 @@
-import { defineConfig } from 'rollup';
-import json from '@rollup/plugin-json';
-import resolve from '@rollup/plugin-node-resolve';
-import commonjs from '@rollup/plugin-commonjs';
-import typescript from 'rollup-plugin-typescript2';
+// import typescript from '@rollup/plugin-typescript';
+import {defineConfig} from "rollup";
 
-import pkg from './package.json';
+import typescript from 'rollup-plugin-typescript2'
+import nodeResolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
+import { readFileSync } from 'fs';
 
-console.log('sodalog typescript --->>>>', typescript);
+const pkg = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8'));
+console.log(`running version ${pkg.version}`);
+
+
+const defaults = { compilerOptions: { declaration: true } };
+const override = { compilerOptions: { declaration: false } };
 
 const config = defineConfig({
-    input: 'src/index.ts',
+    input: pkg.source,
     output: {
-        format: 'commonjs',
-        file: 'dist/index.js',
+        file: pkg.module,
+        format: "es",
     },
-    external: ['react'],
+    external: ['pixi.js', 'react'],
     plugins: [
-        resolve(),
+        nodeResolve(),
         commonjs(),
-        typescript()
+        typescript({
+            // tsconfigDefaults: defaults,
+            tsconfig: 'tsconfig.build.json',
+            // tsconfigOverride: override,
+        }),
     ]
 });
-
 export default config;

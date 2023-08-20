@@ -1,4 +1,4 @@
-import PixiWrapper from "./components/pixi-wrapper";
+import PixiWrapper from "~/components/pixi-wrapper";
 
 export {
     PixiWrapper,

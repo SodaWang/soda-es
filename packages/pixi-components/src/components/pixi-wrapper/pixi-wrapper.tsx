@@ -1,14 +1,16 @@
-import {forwardRef} from 'react';
+import {forwardRef} from "react";
 
-export interface PixiWrapperProps {}
+export interface PixiWrapperProps {
+
+}
 
 const PixiWrapper = forwardRef<HTMLDivElement, PixiWrapperProps>((props, ref) => {
 
     return (
         <div ref={ref}>
-            pixi wrapper
+            PIXI_WRAPPER
         </div>
-    );
+    )
 });
 
 export default PixiWrapper;

@@ -1,3 +1,3 @@
-import PixiWrapper from "./pixi-wrapper";
+import PixiWrapper from "~/components/pixi-wrapper/pixi-wrapper";
 
 export default PixiWrapper;
